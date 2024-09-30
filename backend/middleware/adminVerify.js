@@ -4,12 +4,8 @@ export const adminVerify = async (req, res, next) => {
     try {
         const user = await User.findById(req.user._id);
 
-        if(!user) {
-            return res.status(404).json({ message: "User not found" });
-        }
-
         if (!user) {
-            return res.status(404).json({ message: "User not found" });
+            return res.status(404).json({ message: "Please sign in first" });
         }
 
         if (user.role !== "admin") {
