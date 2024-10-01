@@ -5,6 +5,8 @@ import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.routes.js";
 import adminRoutes from "./routes/admin.routes.js";
 import userRoutes from "./routes/user.routes.js";
+import paymentRoutes from "./routes/payment.routes.js";
+import transactionRoutes from "./routes/transaction.routes.js";
 import mongoDbConnect from "./db/mongoDbConnect.js";
 
 const app = express();
@@ -21,6 +23,8 @@ const PORT = process.env.PORT || 8000;
 app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/payment", paymentRoutes);
+app.use("/api", transactionRoutes);
 
 console.log("MongoDb connected: ", process.env.MONGO_URI);
 
