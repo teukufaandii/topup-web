@@ -13,7 +13,7 @@ router.get('/transaction-status/:orderId', async (req, res) => {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Authorization': `Basic ${process.env.MIDTRANS_SERVER_KEY}`,
+            'Authorization': `${process.env.MIDTRANS_SERVER_KEY}`,
         },
     };
 
