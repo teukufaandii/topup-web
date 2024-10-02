@@ -83,7 +83,7 @@ export const confirmOrder = async (req, res) => {
 
       if (response.ok) {
           const payment = new Payment({
-              paymentId: paymentData.token, 
+              paymentId: order.orderId, 
               status: paymentData.transaction_status, 
               paymentDate: new Date(), 
           });
