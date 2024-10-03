@@ -53,7 +53,7 @@ const Login = () => {
     >
       <div className="absolute inset-0 bg-dark bg-opacity-80"></div>{" "}
       {/* Dark overlay */}
-      <div className="relative z-10 bg-white shadow-xl rounded-lg p-8 max-w-md w-full">
+      <div className="relative z-1 bg-white shadow-xl rounded-lg p-8 max-w-md w-full">
         <h2 className="text-3xl font-bold text-center text-secondary mb-6">
           Login to Your Account
         </h2>
@@ -103,7 +103,7 @@ const Login = () => {
               <FontAwesomeIcon
                 icon={showPassword ? faEyeSlash : faEye}
                 className={`absolute end-0 top-1/2 translate-y-[-50%] ${
-                  showPassword ? "text-secondary" : "text-primary"
+                  showPassword ? "text-gray-600" : "text-gray-300"
                 }`}
                 style={{ cursor: "pointer", right: "10px" }}
                 onClick={togglePasswordVisibility}

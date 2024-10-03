@@ -11,18 +11,14 @@ const Layout = ({ children }) => {
       <div className="fixed top-0 left-0 w-full z-10">
         <Header />
       </div>
-
       <div className="flex flex-grow pt-16">
-        <aside className="fixed top-16 left-0 w-64 h-full bg-gray-200 z-10">
+        <aside className="fixed top-16 left-0 w-64 h-full bg-gray-200 z-1">
           <Sidenav />
         </aside>
-
         <div className="ml-64 w-full flex flex-col justify-between">
-          <div className="flex-grow p-4">
-            <Hero />
+          <div className="flex-grow">
             <main>{children}</main>
           </div>
-
           <Footer className="mt-4" />
         </div>
       </div>

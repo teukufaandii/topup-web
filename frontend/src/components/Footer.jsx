@@ -41,7 +41,7 @@ const Footer = () => {
             <h3 className="text-xl font-semibold text-primary mb-4">Contact Us</h3>
             <p className="text-gray-300">Email: support@topupgaje.com</p>
             <p className="text-gray-300">Phone: +62 812-3456-7890</p>
-            <div className="mt-4 flex space-x-4">
+            <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-primary">
                 <i className="fab fa-facebook-f"></i>
               </a>

@@ -1,11 +1,10 @@
 import React from "react";
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa"; // Import icons from react-icons
+import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
 const Sidenav = () => {
   return (
-    <div className="h-full w-64 bg-gradient-to-r from-black to-gray-900 flex flex-col justify-between p-4">
-      {/* Menu Section */}
-      <div className="bg-gray-900 text-white p-2 rounded">
+    <div className="h-full w-64 bg-gradient-to-br from-gray-800 to-gray-900 flex flex-col justify-between p-4 shadow-lg">
+      <div className="bg-gray-900 text-white p-3 rounded">
         <h2 className="text-xl font-bold mb-8">Menu</h2>
         <ul>
           <li className="mb-4">
@@ -35,7 +34,6 @@ const Sidenav = () => {
         </ul>
       </div>
 
-      {/* Social Media Section */}
       <div className="flex justify-center space-x-4 mb-2">
         <a href="#" className="text-gray-700 hover:text-primary">
           <FaFacebook size={24} />

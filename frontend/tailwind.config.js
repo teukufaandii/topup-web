@@ -7,10 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#FF6500', 
-        secondary: '#1E3E62', 
-        dark: '#0B192C', 
-        black: '#000000', 
+        primary: '#c80000',
+        secondary: '#0a0a0a',
+        dark: '#0f0707',
+        black: '#000000',
+        'custom-red': '#c80000',
+      },
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(var(--tw-gradient-from), var(--tw-gradient-to))',
       },
     },
   },
