@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaInstagram, FaHome, FaGamepad, FaReceipt } from "react-icons/fa";
 
 const Sidenav = () => {
   return (
@@ -12,6 +12,7 @@ const Sidenav = () => {
               href="#"
               className=" hover:text-primary flex items-center space-x-2 transition duration-300"
             >
+              <FaHome size={18} />
               <span>Beranda</span>
             </a>
           </li>
@@ -20,6 +21,7 @@ const Sidenav = () => {
               href="#"
               className=" hover:text-primary flex items-center space-x-2 transition duration-300"
             >
+              <FaGamepad size={18} />
               <span>Semua Game</span>
             </a>
           </li>
@@ -28,6 +30,7 @@ const Sidenav = () => {
               href="#"
               className=" hover:text-primary flex items-center space-x-2 transition duration-300"
             >
+              <FaReceipt size={18} />
               <span>Cek Transaksi</span>
             </a>
           </li>
@@ -35,13 +38,13 @@ const Sidenav = () => {
       </div>
 
       <div className="flex justify-center space-x-4 mb-2">
-        <a href="#" className="text-gray-700 hover:text-primary">
+        <a href="#" className="text-white hover:text-primary">
           <FaFacebook size={24} />
         </a>
-        <a href="#" className="text-gray-700 hover:text-primary">
+        <a href="#" className="text-white hover:text-primary">
           <FaTwitter size={24} />
         </a>
-        <a href="#" className="text-gray-700 hover:text-primary">
+        <a href="#" className="text-white hover:text-primary">
           <FaInstagram size={24} />
         </a>
       </div>

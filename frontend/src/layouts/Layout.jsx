@@ -7,7 +7,7 @@ import Sidenav from "../components/Sidenav";
 
 const Layout = ({ children }) => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-gray-900">
       <div className="fixed top-0 left-0 w-full z-10">
         <Header />
       </div>
