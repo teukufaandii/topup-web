@@ -6,8 +6,9 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import Login from "./pages/Login";
 import Layout from "./layouts/Layout";
+import Login from "./pages/Login";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   return (
@@ -15,6 +16,14 @@ function App() {
       <Routes>
         <Route
           path="/"
+          element={
+            <Layout>
+              <LandingPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/signin"
           element={
             <Layout>
               <Login />

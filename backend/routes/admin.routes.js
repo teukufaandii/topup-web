@@ -1,6 +1,11 @@
 import express from "express";
 import { adminVerify } from "../middleware/adminVerify.js";
-import { addCategory, addGame, addProduct, getUsers } from "../controllers/admin.controllers.js";
+import {
+  addCategory,
+  addGame,
+  addProduct,
+  getUsers,
+} from "../controllers/admin.controllers.js";
 import { protectRoute } from "../middleware/protectRoute.js";
 
 const router = express.Router();

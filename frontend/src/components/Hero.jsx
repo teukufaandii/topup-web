@@ -3,7 +3,7 @@ import React from "react";
 const Hero = () => {
   return (
     <div
-      className="hero min-h-screen bg-cover bg-center"
+      className="hero h-[400px] bg-cover bg-center"
       style={{
         backgroundImage: "url(/public/hero.jpg)",
       }}
