@@ -57,3 +57,67 @@ export const SignIn = async (data) => {
 
   return response.json();
 };
+
+export const signUp = async (data) => {
+  const { fullName, email, phoneNumber, password } = data;
+
+  const response = await fetch(`${API_BASE_URL}/api/auth/signup`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify({ fullName, email, phoneNumber, password }),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.msg || "Error signing up");
+  }
+
+  return response.json();
+};
+
+export const signOut = async () => {
+  const response = await fetch(`${API_BASE_URL}/api/auth/logout`, {
+    method: "POST",
+    credentials: "include",
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.msg || "Error signing out");
+  }
+}
+
+export const ForgotPassword = async (data) => {
+  const { email } = data;
+  const response = await fetch(`${API_BASE_URL}/api/auth/forgot-password`, {
+    method: "POST", 
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify({ email }),
+  });
+  if (!response.ok) {
+    const errorData = await response.json();  
+    throw new Error(errorData.msg || "Error resetting password");
+  }
+}
+
+export const ResetPassword = async (data) => {
+  const { token, newPassword } = data;
+  const response = await fetch(`${API_BASE_URL}/api/auth/reset-password`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify({ token, newPassword }),
+  });
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.msg || "Error resetting password");
+  }
+}

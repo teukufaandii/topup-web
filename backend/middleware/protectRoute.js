@@ -27,7 +27,7 @@ export const protectRoute = async (req, res, next) => {
       return res.status(401).json({ msg: "Unauthorized: User not found" });
     }
 
-    req.user = user; // Menyimpan user di req object untuk digunakan di route selanjutnya
+    req.user = user;
     next();
   } catch (err) {
     console.log("Error in protectRoute middleware", err.message);

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState } from "react";
 import Toast from "../components/Toast";
 import { useQuery } from "react-query";
 import * as apiClient from "../api-client";
@@ -20,7 +20,7 @@ export const AppContextProvider = ({ children }) => {
           const userRole = await apiClient.fetchCurrentUserAdmin();
 
           setIsAdmin(userRole?.role === "admin");
-          setIsLoggedIn(true); 
+          setIsLoggedIn(true);
         } catch (error) {
           console.error("Error fetching user role:", error);
           setIsAdmin(false);
@@ -47,6 +47,8 @@ export const AppContextProvider = ({ children }) => {
         showToast,
         isLoggedIn,
         isAdmin,
+        setIsLoggedIn,
+        setIsAdmin,
       }}
     >
       {toast && (

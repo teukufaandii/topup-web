@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "react-query";
 import * as apiClient from "../api-client";
+import { Link, useNavigate } from "react-router-dom";
 import { useAppContext } from "../contexts/AppContext";
-import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { showToast } = useAppContext(); // Mengambil fungsi showToast dari context
+  const { showToast } = useAppContext();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
@@ -18,6 +18,17 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
+
+  useEffect(() => {
+    const signupMessage = sessionStorage.getItem("signupMessage");
+    if (signupMessage) {
+      showToast({
+        message: signupMessage,
+        type: "SUCCESS",
+      });
+      sessionStorage.removeItem("signupMessage");
+    }
+  }, [showToast]);
 
   const mutation = useMutation(apiClient.SignIn, {
     onSuccess: async () => {
@@ -36,31 +47,26 @@ const Login = () => {
     },
   });
 
-  // Fungsi untuk toggle visibilitas password
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
 
-  // Fungsi untuk menangani submit form
   const onSubmit = handleSubmit((data) => {
     mutation.mutate(data);
   });
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center bg-cover bg-center relative"
+      className="h-screen flex items-center justify-center bg-cover bg-center relative"
       style={{ backgroundImage: "url(/public/hero.jpg)" }}
     >
       <div className="absolute inset-0 bg-dark bg-opacity-80"></div>{" "}
-      {/* Dark overlay */}
-      <div className="relative z-1 bg-white shadow-xl rounded-lg p-8 max-w-md w-full">
+      <div className="relative z-10 bg-white shadow-xl rounded-lg p-8 max-w-md w-full">
         <h2 className="text-3xl font-bold text-center text-secondary mb-6">
           Login to Your Account
         </h2>
 
         <form onSubmit={onSubmit}>
-          {" "}
-          {/* Menggunakan onSubmit dari react-hook-form */}
           <div className="mb-4">
             <label
               className="block text-secondary font-semibold mb-2"
@@ -124,9 +130,9 @@ const Login = () => {
                 Remember me
               </label>
             </div>
-            <a href="#" className="text-primary hover:underline">
+            <Link to={"/forgot-password"} className="text-primary hover:underline">
               Forgot Password?
-            </a>
+            </Link>
           </div>
           <button
             type="submit"
@@ -138,9 +144,9 @@ const Login = () => {
 
         <p className="text-center text-secondary mt-6">
           Don't have an account?{" "}
-          <a href="#" className="text-primary hover:underline">
+          <Link to="/signup" className="text-primary hover:underline">
             Sign Up
-          </a>
+          </Link>
         </p>
       </div>
     </div>

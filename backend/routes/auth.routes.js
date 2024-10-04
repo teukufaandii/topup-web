@@ -1,7 +1,9 @@
 import express from "express";
 import {
+  forgotPassword,
   getMe,
   logout,
+  resetPassword,
   signin,
   signUp,
   validateToken,
@@ -12,9 +14,12 @@ const router = express.Router();
 
 router.get("/getme", protectRoute, getMe);
 router.get("/validate", protectRoute, validateToken);
+router.post("/logout", protectRoute, logout);
+
 router.post("/signin", signin);
 router.post("/signup", signUp);
-router.post("/logout", logout);
+router.post("/forgot-password", forgotPassword);
+router.put("/reset-password", resetPassword);
 
 
 export default router;

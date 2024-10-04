@@ -15,6 +15,9 @@ export default {
         "custom-gradient":
           "linear-gradient(var(--tw-gradient-from), var(--tw-gradient-to))",
       },
+      fontFamily: {
+        poppins: ['"Poppins"', 'sans-serif'],
+      },
     },
   },
   plugins: [require("daisyui")],
