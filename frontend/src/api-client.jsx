@@ -121,3 +121,11 @@ export const ResetPassword = async (data) => {
     throw new Error(errorData.msg || "Error resetting password");
   }
 }
+
+export const getGamesLandingPage = async () => {
+  const response = await fetch(`${API_BASE_URL}/api/games/fetch-games`);
+  if (!response.ok) {
+    throw new Error("Error fetching games");
+  }
+  return response.json();
+}

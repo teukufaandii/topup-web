@@ -25,6 +25,7 @@ const Login = () => {
       showToast({
         message: signupMessage,
         type: "SUCCESS",
+        
       });
       sessionStorage.removeItem("signupMessage");
     }

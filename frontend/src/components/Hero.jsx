@@ -36,9 +36,13 @@ const Hero = () => {
         <div className="absolute w-4 h-4 md:w-6 md:h-6 bg-white rounded-full bottom-5 left-20 md:left-40"></div>
       </div>
 
-      <div className="relative z-10 text-center text-white">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">Topup Gaje</h1>
-        <p className="text-sm sm:text-base md:text-lg mt-2">Ingin Dapat Harga Lebih Murah?</p>
+      <div className="relative z-10 text-center text-white px-4">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+          Topup Gaje
+        </h1>
+        <p className="text-sm sm:text-base md:text-lg mt-2">
+          Ingin Dapat Harga Lebih Murah?
+        </p>
         <button className="mt-5 bg-red-800 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-lg">
           Hubungi: 0822 1169 6095
         </button>

@@ -29,10 +29,10 @@ const Signup = () => {
       });
       sessionStorage.setItem(
         "signupMessage",
-        "Daftar akun berhasil, mohon login kembali dengan akun yang terdaftar."
+        "Daftar akun berhasil"
       );
       await queryClient.invalidateQueries("validateToken");
-      navigate("/login");
+      navigate("/");
     },
     onError: (error) => {
       showToast({
