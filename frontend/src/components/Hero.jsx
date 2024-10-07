@@ -47,7 +47,6 @@ const Hero = () => {
           Hubungi: 0822 1169 6095
         </button>
 
-        {/* Social media and website links */}
         <div className="flex justify-center space-x-3 sm:space-x-5 mt-6 sm:mt-10">
           <a href="https://www.instagram.com" className="text-white">
             <FontAwesomeIcon icon={faInstagram} className="text-lg sm:text-xl" /> Instagram

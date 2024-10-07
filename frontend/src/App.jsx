@@ -12,6 +12,7 @@ import LandingPage from "./pages/LandingPage";
 import Signup from "./pages/Signup";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import GameDetail from "./pages/GameDetail";
 
 function App() {
   return (
@@ -54,6 +55,14 @@ function App() {
           element={
             <Layout>
               <ResetPassword />
+            </Layout>
+          }
+        />
+        <Route
+          path="/game-details"
+          element={
+            <Layout>
+              <GameDetail />
             </Layout>
           }
         />
