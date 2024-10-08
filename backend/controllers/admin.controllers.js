@@ -25,20 +25,33 @@ export const getUsers = async (req, res) => {
 
 export const addProduct = async (req, res) => {
     try {
-        const { name, price, description, image, category, game, ammount } = req.body;
-        const newProduct = new Product({ name, price, description, image, category, game, ammount });
-        await newProduct.save();
-        res.status(200).json({ message: "Product added successfully" });
+      const { name, price, description, image, category, game, amount } = req.body;
+
+      const newProduct = new Product({ name, price, description, image, category, game, amount });
+
+      const savedProduct = await newProduct.save();
+
+      const relatedGame = await Game.findById(game);
+  
+      if (!relatedGame) {
+        return res.status(404).json({ message: "Game not found" });
+      }
+
+      relatedGame.products.push(savedProduct._id);
+
+      await relatedGame.save();
+
+      res.status(200).json({ message: "Product added successfully", product: savedProduct });
     } catch (error) {
-        console.log("Error in addProduct controller", error.message);
-        res.status(500).json({ message: error.message });
+      console.error("Error in addProduct controller", error.message);
+      res.status(500).json({ message: error.message });
     }
-}
+  };
 
 export const addGame = async (req, res) => {
     try {
-        const { name } = req.body;
-        const newGame = new Game({ name });
+        const { name, slug } = req.body;
+        const newGame = new Game({ name, slug });
         await newGame.save();
         res.status(200).json({ message: "Game added successfully" });
     } catch (error) {

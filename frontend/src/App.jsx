@@ -12,7 +12,7 @@ import LandingPage from "./pages/LandingPage";
 import Signup from "./pages/Signup";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
-import GameDetail from "./pages/GameDetail";
+import Beli from "./pages/Beli";
 
 function App() {
   return (
@@ -59,10 +59,10 @@ function App() {
           }
         />
         <Route
-          path="/game-details"
+          path="/beli/:slug"
           element={
             <Layout>
-              <GameDetail />
+              <Beli />
             </Layout>
           }
         />

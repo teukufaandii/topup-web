@@ -27,7 +27,7 @@ const productSchema = new mongoose.Schema(
       ref: "Game",
       required: true,
     },
-    ammount: {
+    amount: {
       type: Number,
       required: true,
     },

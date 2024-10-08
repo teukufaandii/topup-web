@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Hero from "../components/Hero";
+import { Link } from "react-router-dom";
 
 const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
 
@@ -41,11 +42,17 @@ const LandingPage = () => {
     fetchProducts();
   }, []);
 
+  const generateSlug = (name) => {
+    return name
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, "")
+      .replace(/\s+/g, "-");
+  };
+
   return (
     <div className="min-h-screen bg-gray-900">
       <Hero />
 
-      {/* Products Section */}
       <section className="container mx-auto px-3">
         <h2 className="text-3xl font-bold text-start text-primary my-5">
           Most Popular Search
@@ -72,7 +79,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Games Section */}
       <section className="container mx-auto px-3 my-8">
         <h2 className="text-3xl font-bold text-start text-primary my-5">
           Featured Games
@@ -86,7 +92,7 @@ const LandingPage = () => {
               key={product.id}
             >
               <div className="relative group">
-                <div className="relative overflow-hidden rounded-lg">
+                <Link to={`/beli/${generateSlug(product.name)}`} className="relative overflow-hidden rounded-lg">
                   <img
                     src={product.image}
                     alt={product.name}
@@ -96,7 +102,7 @@ const LandingPage = () => {
                   <h3 className="text-lg absolute bottom-5 text-center w-full p-4 font-semibold text-white opacity-0 duration-300 group-hover:opacity-100">
                     {product.name}
                   </h3>
-                </div>
+                </Link>
               </div>
               <div className="mt-4 text-center">
                 <p className="text-primary text-md font-bold">
