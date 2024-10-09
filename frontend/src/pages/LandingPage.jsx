@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Hero from "../components/Hero";
 import { Link } from "react-router-dom";
 
-const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
+const API_BASE_URL =
+  import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
 
 const LandingPage = () => {
   const [games, setGames] = useState([]);
@@ -91,14 +92,20 @@ const LandingPage = () => {
               className="w-full cursor-pointer"
               key={product.id}
             >
-              <div className="relative group">
-                <Link to={`/beli/${generateSlug(product.name)}`} className="relative overflow-hidden rounded-lg">
+              <div className="relative group overflow-hidden rounded-lg">
+                {" "}
+                <Link
+                  to={`/beli/${generateSlug(product.name)}`}
+                >
                   <img
                     src={product.image}
                     alt={product.name}
                     className="rounded-lg shadow-lg w-full h-60 md:h-72 lg:h-80 object-cover transition duration-300 group-hover:blur-xl"
                   />
-                  <img src="/public/logo.png" className="absolute bottom-7 text-center w-20 h-20 left-1/2 translate-x-[-50%] sm:w-24 sm:h-24 p-4 opacity-0 duration-300 group-hover:opacity-100" />
+                  <img
+                    src="/public/logo.png"
+                    className="absolute bottom-7 text-center w-20 h-20 left-1/2 translate-x-[-50%] sm:w-24 sm:h-24 p-4 opacity-0 duration-300 group-hover:opacity-100"
+                  />
                   <h3 className="text-lg absolute bottom-5 text-center w-full p-4 font-semibold text-white opacity-0 duration-300 group-hover:opacity-100">
                     {product.name}
                   </h3>
